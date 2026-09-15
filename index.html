@@ -1,0 +1,275 @@
+<title>백지민 포트폴리오</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #F2F1F7;
+    --bar: rgba(242, 241, 247, 0.86);
+    --ink: #1C1B26;
+    --muted: #6F6D82;
+    --line: #DAD8E6;
+    --accent: #6A5AE0;
+    --page-shadow: 0 1px 2px rgba(28, 27, 38, 0.06), 0 12px 32px rgba(28, 27, 38, 0.08);
+    --page-bg: #FFFFFF;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141319;
+      --bar: rgba(20, 19, 25, 0.86);
+      --ink: #ECEBF4;
+      --muted: #908EA6;
+      --line: #2B2A36;
+      --accent: #A89CFF;
+      --page-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.45);
+      --page-bg: #1E1D27;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141319;
+    --bar: rgba(20, 19, 25, 0.86);
+    --ink: #ECEBF4;
+    --muted: #908EA6;
+    --line: #2B2A36;
+    --accent: #A89CFF;
+    --page-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.45);
+    --page-bg: #1E1D27;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans KR", "Pretendard", "Apple SD Gothic Neo", system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  .bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bar);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar-in {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .who {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  .who strong { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+  .who span { color: var(--muted); font-size: 13px; }
+
+  nav {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    justify-content: center;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  nav button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  nav button:hover { color: var(--ink); }
+  nav button[aria-current="true"] { color: var(--accent); font-weight: 500; }
+  nav button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .count {
+    flex: 0 0 auto;
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+  .count b { color: var(--ink); font-weight: 500; }
+
+  main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 20px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .page {
+    position: relative;
+    scroll-margin-top: 68px;
+  }
+  .page img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    background: var(--page-bg);
+    border-radius: 6px;
+    box-shadow: var(--page-shadow);
+  }
+  .page .n {
+    position: absolute;
+    left: 0;
+    bottom: -18px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .foot {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px 48px;
+    color: var(--muted);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  kbd {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0 5px;
+  }
+
+  @media (max-width: 720px) {
+    .bar-in { gap: 12px; height: 48px; padding: 0 16px; }
+    .who span { display: none; }
+    nav { justify-content: flex-start; }
+    main { padding: 16px 16px 48px; gap: 18px; }
+    .page img { border-radius: 4px; }
+    .page .n { display: none; }
+    .foot { padding: 0 16px 40px; }
+    .foot .keys { display: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+</style>
+
+<header class="bar">
+  <div class="bar-in">
+    <div class="who"><strong>백지민</strong><span>Product Designer · 2024 – 2026</span></div>
+    <nav id="nav" aria-label="섹션">
+      <button data-p="1">표지</button>
+      <button data-p="2">소개</button>
+      <button data-p="4">01 검수 자동화</button>
+      <button data-p="9">02 UX Analyzer</button>
+      <button data-p="13">03 SuperClub 홈</button>
+      <button data-p="20">04 AI 설정</button>
+      <button data-p="26">Other Work</button>
+    </nav>
+    <div class="count" aria-live="polite"><b id="cur">1</b> / 28</div>
+  </div>
+</header>
+
+<main id="pages"></main>
+
+<div class="foot">
+  <span>© 2026 Baek Ji Min</span>
+  <span class="keys"><kbd>←</kbd> <kbd>→</kbd> 또는 <kbd>J</kbd> <kbd>K</kbd> 로 페이지 이동</span>
+</div>
+
+<script>
+(function () {
+  var TOTAL = 28;
+  var main = document.getElementById('pages');
+  var frag = document.createDocumentFragment();
+  for (var i = 1; i <= TOTAL; i++) {
+    var n = (i < 10 ? '0' : '') + i;
+    var sec = document.createElement('section');
+    sec.className = 'page';
+    sec.id = 'p' + i;
+    sec.setAttribute('data-p', i);
+    var img = document.createElement('img');
+    img.src = 'pages/' + n + '.webp';
+    img.width = 2560;
+    img.height = 1440;
+    img.alt = '포트폴리오 ' + i + '쪽';
+    if (i > 2) { img.loading = 'lazy'; img.decoding = 'async'; }
+    var lab = document.createElement('span');
+    lab.className = 'n';
+    lab.textContent = n;
+    sec.appendChild(img);
+    sec.appendChild(lab);
+    frag.appendChild(sec);
+  }
+  main.appendChild(frag);
+
+  var cur = document.getElementById('cur');
+  var navBtns = Array.prototype.slice.call(document.querySelectorAll('#nav button'));
+  var starts = navBtns.map(function (b) { return +b.getAttribute('data-p'); });
+  var current = 1;
+
+  function setCurrent(p) {
+    if (p === current) return;
+    current = p;
+    cur.textContent = p;
+    var idx = 0;
+    for (var i = 0; i < starts.length; i++) if (p >= starts[i]) idx = i;
+    navBtns.forEach(function (b, i) {
+      if (i === idx) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+    });
+  }
+
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var io = new IntersectionObserver(function (entries) {
+    var best = null;
+    entries.forEach(function (e) {
+      if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e;
+    });
+    if (best) setCurrent(+best.target.getAttribute('data-p'));
+  }, { rootMargin: '-40% 0px -40% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+  pages.forEach(function (p) { io.observe(p); });
+
+  function go(p) {
+    p = Math.max(1, Math.min(TOTAL, p));
+    var el = document.getElementById('p' + p);
+    if (el) el.scrollIntoView({ block: 'start' });
+  }
+  navBtns.forEach(function (b) {
+    b.addEventListener('click', function () { go(+b.getAttribute('data-p')); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var t = e.target && e.target.tagName;
+    if (t === 'INPUT' || t === 'TEXTAREA') return;
+    if (e.key === 'ArrowRight' || e.key === 'j' || e.key === 'J' || e.key === 'PageDown') { e.preventDefault(); go(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'k' || e.key === 'K' || e.key === 'PageUp') { e.preventDefault(); go(current - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); go(1); }
+    else if (e.key === 'End') { e.preventDefault(); go(TOTAL); }
+  });
+})();
+</script>
